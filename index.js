@@ -1,11 +1,3 @@
-// const express = require('express')
-// const app = express()
-// app.all('/', (req, res) => {
-//     console.log("Just got a request!")
-//     res.send('Yo!')
-// })
-// app.listen(process.env.PORT || 3000)
-
 var nodemailer = require('nodemailer');
 
 var express = require('express')
@@ -16,16 +8,16 @@ const PORT = process.env.PORT || 3000
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'wdm.pro.adm.gmail.com',
-    pass: 'gbnuruttwxbwutai'
+    user: 'wdm.pro.adm@gmail.com',
+    pass: 'sgnrduulzedlupvg'
   }
 });
 
 app.get('/', function(req, res) {
     console.log(req.query)
     var mailOptions = {
-      from: 'wdm.pro.adm.gmail.com',
-      to: 'wdm.pro.adm.gmail.com',
+      from: 'wdm.pro.adm@gmail.com',
+      to: 'wdm.pro.adm@gmail.com',
       subject: req.query.subject,
       text: req.query.message
     };
@@ -45,7 +37,7 @@ app.get('/', function(req, res) {
 app.get('/signup', function(req, res) {
   
     var mailOptions = {
-      from: 'wdm.pro.adm.gmail.com',
+      from: 'wdm.pro.adm@gmail.com',
       to: req.query.to,
       subject: req.query.subject,
       text: req.query.message
