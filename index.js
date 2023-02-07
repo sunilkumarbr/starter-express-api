@@ -57,6 +57,29 @@ app.get('/signup', function(req, res) {
     
 })
 
+app.get('/mail', function(req, res) {
+  
+    var mailOptions = {
+      from: req.query.from,
+      to: req.query.to,
+      subject: req.query.subject,
+      text: req.query.message
+    };
+
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        res.send('error')
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.send('sent')
+      }
+    });
+
+    
+})
+
 app.listen(PORT, function(req, res) {
     console.log("listen at ", PORT);
 });
