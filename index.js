@@ -14,18 +14,18 @@ var app = express()
 const PORT = process.env.PORT || 3000
 
 var transporter = nodemailer.createTransport({
-  service: 'TRASH-MAIL',
+  service: 'gmail',
   auth: {
-    user: 'test2323@trash-mail.com',
-    pass: ''
+    user: 'wdm.pro.adm.gmail.com',
+    pass: 'nzdvjkfndveaazif'
   }
 });
 
 app.get('/', function(req, res) {
     console.log(req.query)
     var mailOptions = {
-      from: 'siremar.project@gmail.com',
-      to: 'siremar.project@gmail.com',
+      from: 'wdm.pro.adm.gmail.com',
+      to: 'wdm.pro.adm.gmail.com',
       subject: req.query.subject,
       text: req.query.message
     };
@@ -45,7 +45,7 @@ app.get('/', function(req, res) {
 app.get('/signup', function(req, res) {
   
     var mailOptions = {
-      from: 'siremar.project@gmail.com',
+      from: 'wdm.pro.adm.gmail.com',
       to: req.query.to,
       subject: req.query.subject,
       text: req.query.message
