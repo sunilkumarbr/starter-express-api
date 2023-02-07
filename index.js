@@ -13,6 +13,15 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, 
+    Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+      next();
+});
+
 app.get('/', function(req, res) {
     console.log(req.query)
     var mailOptions = {
@@ -26,10 +35,10 @@ app.get('/', function(req, res) {
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
-        res.send('error')
+        res.send({message:'error'})
       } else {
         console.log('Email sent: ' + info.response);
-        res.send('sent')
+        res.send({message:'sent'})
       }
     });
 })
@@ -47,10 +56,10 @@ app.get('/signup', function(req, res) {
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
-        res.send('error')
+        res.send({message:'error'})
       } else {
         console.log('Email sent: ' + info.response);
-        res.send('sent')
+        res.send({message:'sent'})
       }
     });
 
@@ -70,10 +79,10 @@ app.get('/mail', function(req, res) {
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
-        res.send('error')
+        res.send({message:'error'})
       } else {
         console.log('Email sent: ' + info.response);
-        res.send('sent')
+        res.send({message:'sent'})
       }
     });
 
