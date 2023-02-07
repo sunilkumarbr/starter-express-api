@@ -14,10 +14,10 @@ var app = express()
 const PORT = process.env.PORT || 3000
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'guerrillamail',
   auth: {
-    user: 'siremar.project@gmail.com',
-    pass: 'siremar.admin'
+    user: 'r9per4+8h5gpaors6qrk@sharklasers.com',
+    pass: ''
   }
 });
 
