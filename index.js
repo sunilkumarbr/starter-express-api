@@ -13,6 +13,12 @@ var transporter = nodemailer.createTransport({
   }
 });
 
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', function(req, res) {
     console.log(req.query)
     var mailOptions = {
