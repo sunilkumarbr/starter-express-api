@@ -14,9 +14,9 @@ var app = express()
 const PORT = process.env.PORT || 3000
 
 var transporter = nodemailer.createTransport({
-  service: 'guerrillamail',
+  service: 'TRASH-MAIL',
   auth: {
-    user: 'r9per4+8h5gpaors6qrk@sharklasers.com',
+    user: 'test2323@trash-mail.com',
     pass: ''
   }
 });
